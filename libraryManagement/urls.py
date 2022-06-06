@@ -19,7 +19,8 @@ from bookEntry import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index,name='book'),  
+    path('',include('authentication.urls')),
+    path('home', views.index,name='home'),  
     path('retrieve',views.retrieve,name='retrieve'),
     path('edit/<int:id>', views.edit,name='edit'),  
     path('update/<int:id>', views.update,name='update'),  
