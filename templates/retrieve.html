@@ -12,30 +12,29 @@
 <table class="table table-striped table-bordered table-sm">
     <caption class="caption-top">List of Books</caption>
     <thead class="thead-dark">  
-    <tr>  
-        <th>Barcode</th>  
-        <th>Title</th>  
-        <th>Author</th>  
-        <th>Language</th>
-        <th>Edition</th>  
-        <th>Actions</th>  
-    </tr>  
+        <tr>  
+            <th>Barcode</th>  
+            <th>Title</th>  
+            <th>Author</th>  
+            <th>Language</th>
+            <th>Edition</th>  
+            <th>Actions</th>  
+        </tr>  
     </thead>  
     <tbody>  
-{% for bookEntry in books %}  
-    <tr>  
-        <td>{{ bookEntry.code }}</td>  
-        <td>{{ bookEntry.title }}</td>  
-        <td>{{ bookEntry.author }}</td>  
-        <td>{{ bookEntry.language}}</td> 
-        <td>{{ bookEntry.edition}}</td>  
-
-        <td>  
-            <a href="/edit/{{ bookEntry.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="/delete/{{ bookEntry.id }}">Delete</a>  
-        </td>  
-    </tr>  
-{% endfor %}  
+        {% for bookEntry in books %}  
+            <tr>  
+                <td>{{ bookEntry.code }}</td>  
+                <td>{{ bookEntry.title }}</td>  
+                <td>{{ bookEntry.author }}</td>  
+                <td>{{ bookEntry.language}}</td> 
+                <td>{{ bookEntry.edition}}</td>  
+                <td>  
+                    <a href="/edit/{{ bookEntry.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+                    <a href="/delete/{{ bookEntry.id }}">Delete</a>  
+                </td>  
+            </tr>  
+        {% endfor %}  
     </tbody>  
 </table>  
 <br>  
