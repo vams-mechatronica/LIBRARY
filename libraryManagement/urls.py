@@ -19,10 +19,19 @@ from bookEntry import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('authentication.urls')),
-    path('home', views.index,name='home'),  
+    path('',views.home,name="home"),
+    path('login',include('authentication.urls')),
+    path('logoutaccount',include('authentication.urls')),
+    path('firstpage', views.index,name='firstpage'),  
     path('retrieve',views.retrieve,name='retrieve'),
     path('edit/<int:id>', views.edit,name='edit'),  
     path('update/<int:id>', views.update,name='update'),  
     path('delete/<int:id>', views.destroy,name='destroy'),
+    path('browsebybookname',views.bbybookname,name="browsebybookname"),
+    path('browsebyauthor',views.bbyauthor,name="browsebyauthor"),
+    path('browsebybarcode',views.bbybarcode,name="browsebybarcode"),
+    path('searchbyauthor',views.searchbyauthor,name="searchbyauthor"),
+    path('searchbytitle',views.searchbybookname,name="searchbytitle"),
+    path('searchbycode',views.searchbybarcode,name="searchbycode"),
+    
 ]

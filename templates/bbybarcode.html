@@ -2,6 +2,10 @@
 {% block title %}Browse by Book Name{% endblock title %}
 {% block body %}
 <div class = "container">
+    <form class="form-inline my-2 my-lg-0" method="post" action="/searchbycode">{% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchByCode">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
     <table class="table table-striped table-bordered table-sm">
         <caption class="caption-top">List of Books</caption>
         <thead class="thead-dark">  
