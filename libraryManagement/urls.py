@@ -13,9 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin  
-from django.urls import path, include  
+from django.urls import path, include, re_path  
 from bookEntry import views  
+from django.views.static import serve
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +37,7 @@ urlpatterns = [
     path('searchbyauthor',views.searchbyauthor,name="searchbyauthor"),
     path('searchbytitle',views.searchbybookname,name="searchbytitle"),
     path('searchbycode',views.searchbybarcode,name="searchbycode"),
-    
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
+urlpatterns=urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
