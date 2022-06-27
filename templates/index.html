@@ -14,15 +14,17 @@
             </tr>  
         </thead>  
         <tbody>  
-            {% for bookEntry in books %}  
-                <tr>  
-                    <td>{{ bookEntry.code }}</td>  
-                    <td>{{ bookEntry.title }}</td>  
-                    <td>{{ bookEntry.author }}</td>  
-                    <td>{{ bookEntry.language}}</td> 
-                    <td>{{ bookEntry.edition}}</td>  
-                </tr>  
-            {% endfor %}  
+            {% if books|length > 0 %}
+                {% for book in books %}  
+                    <tr>  
+                        <td>{{ book.code }}</td>  
+                        <td>{{ book.title }}</td>  
+                        <td>{{ book.author }}</td>  
+                        <td>{{ book.language}}</td> 
+                        <td>{{ book.edition}}</td>  
+                    </tr>  
+                {% endfor %}
+            {% endif %} 
         </tbody>  
     </table>  
 </div>
